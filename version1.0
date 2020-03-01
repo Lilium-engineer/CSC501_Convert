@@ -1,0 +1,107 @@
+#include <iostream>
+#include <math.h>
+
+
+int i;
+int j;
+int k;
+
+
+int C;
+float D;
+int* B1 = new int[j];
+char* B2 = new char[j];
+
+
+float l;
+int* C1 = new int[j];
+char* C2 = new char[j];
+
+
+const char* int_part()
+{
+	const char* back = new char;
+	back = ".";
+	j=0;
+	for (k=floor(D); k >= 1; k=floor(k/C) )
+	{
+		B1[j] = k%C;
+	        j++;	
+	}
+
+
+	k=0;
+	for (i=j-1; i >= 0; i--)
+	{
+		if(B1[i]<10)
+		{
+			B2[k]=(char)(48+B1[i]);
+			k++;
+		}
+		if(B1[i]>=10)
+		{
+			 B2[k]=(char)(55+B1[i]);
+                        k++;
+		}
+	}
+
+
+	for(i=0; i<=k-1; i++ )
+	{
+              std::cout<<B2[i];
+	}
+
+
+return back;
+}
+
+
+const char* dec_part()
+{
+        const char* back = new char;
+        back = " ";
+        j=0;
+        for (l=D-floor(D); l != 0; l=l*C-floor(l*C) )
+        {
+                C1[j] = floor(l*C);
+                j++;
+        }
+
+
+        k=0;
+        for (i=0; i <= j-1; i++)
+        {
+                if(C1[i]<10)
+                {
+                        C2[k]=(char)(48+C1[i]);
+                        k++;
+                }
+                if(C1[i]>=10)
+                {
+                         C2[k]=(char)(55+C1[i]);
+                        k++;
+                }
+        }
+        for(i=0; i<=k-1; i++ )
+        {
+              std::cout<<C2[i];
+        }
+
+
+return back;
+}
+
+
+
+
+int main()
+{
+
+
+        std::cout << "Insert decimal that needs to be transfered" << std::endl;
+        scanf("%f", &D);
+	std::cout << "Choice the way to transfer. i.e 2 for binary; 8 for octal; 16 for hexadecimal." << std::endl;
+        scanf("%i", &C);
+	std::cout << "Here are the Primes: \n" << int_part() << dec_part() <<std::endl;
+	return 0;
+}
